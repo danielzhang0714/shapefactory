@@ -13,7 +13,7 @@ class Shape{
   //methods
   getInfo(){
     const info = document.querySelector('.info');
-    info.innerText = `Unit ${shapeIndex + 1}: ${this._colour} ${this._name}`;
+    info.innerHTML = `Unit ${shapeIndex + 1}: ${this._colour} ${this._name}`;
   }
 }
 
@@ -28,7 +28,7 @@ function createShape(){
 
   if(shapeIndex >= 20){
       alert('Box is full!');
-      create.innerText = 'Reset';
+      create.innerHTML = 'Reset';
       create.onclick = reset;
       create.classList.remove('reset');
       return;
@@ -38,7 +38,6 @@ function createShape(){
 
   const shape = new Shape(currentShape, currentColor);
   shapes.push(shape);
-  shape.getInfo();
 
   
   const box = document.createElement("div");
@@ -56,9 +55,9 @@ function reset(){
     grid.innerHTML = '';
     shapeIndex = 0;
     shapes.length = 0;
-    create.innerText = 'Create';
+    create.innerHTML = 'Create';
     create.onclick = createShape;
-    info.innerText = '';
+    info.innerHTML = '';
     return;
   }
 
