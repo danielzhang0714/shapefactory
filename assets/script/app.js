@@ -23,10 +23,10 @@ let shapeIndex = 0;
 function createShape(){
   const colourSelect = document.getElementById('colourselect');
   const shapeSelect = document.getElementById('shapeselect');
-  const boxes = document.querySelectorAll('.box');
   const create = document.getElementById('push');
+  const grid = document.querySelector('.grid-container');
 
-  if(shapeIndex >= boxes.length){
+  if(shapeIndex >= 20){
       alert('Box is full!');
       create.innerText = 'Reset';
       create.onclick = reset;
@@ -40,20 +40,20 @@ function createShape(){
   shapes.push(shape);
   shape.getInfo();
 
-  const box = boxes[shapeIndex];
-  box.classList.remove('circle', 'square', 'blue', 'green', 'orange', 'pink', 'purple');
-  box.classList.add(`${currentShape}`, `${currentColor}`);
-  box.onclick = () => shape.getInfo();
+  
+  const box = document.createElement("div");
+  box.classList.add("box", currentShape, currentColor);
+  box.onclick = () => shape.getInfo(shapeIndex);
+  grid.appendChild(box);
+  shape.getInfo(shapeIndex);
   shapeIndex++;
 }
 
 function reset(){
     const create = document.getElementById('push');
-    const boxes = document.querySelectorAll('.box');
+    const grid = document.querySelector('.grid-container');
     const info = document.querySelector('.info');
-    boxes.forEach(box => {
-      box.classList.remove('circle', 'square', 'blue', 'green', 'orange', 'pink', 'purple');
-    })
+    grid.innerHTML = '';
     shapeIndex = 0;
     shapes.length = 0;
     create.innerText = 'Create';

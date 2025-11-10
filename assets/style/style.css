@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 .container {
-  width: min(100% - 30px, 450px);
+  width: min(100% - 30px, 500px);
   margin-inline: auto;
 }
 
@@ -20,7 +20,9 @@ h1 {
 .grid-container {
   display: grid;
   place-items: center;
-  grid-template-columns: repeat(5, 80px);
+  height: 440px;
+  grid-template-columns: repeat(5, 90px);
+  grid-template-rows: repeat(4, 105px);
   /* grid-auto-rows: 140px; */
   /* grid-auto-rows: minmax(200px, auto); */
   grid-gap: 4px;
@@ -31,9 +33,11 @@ h1 {
 }
 
 .box {
+  display: flex;
   width: 80px;
   height: 80px;
   background-color: transparent;
+  margin: 10px;
 }
 
 .createColourShape {
