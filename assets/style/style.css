@@ -43,8 +43,19 @@ h1 {
   margin-bottom: 10px;
 }
 
-#colourselect {
-  size: 30px;
+select {
+  width: 100px;
+  height: 40px;
+  background-color: #bcbaba;
+  border-radius: 5px;
+}
+
+button {
+  width: 80px;
+  height: 40px;
+  color: #eaeaea;
+  background-color: #000000;
+  border-radius: 5px;
 }
 
 .circle {
